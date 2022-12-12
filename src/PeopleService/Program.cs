@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using PeopleService.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ApiContext>(options =>
+
+    options.UseInMemoryDatabase("PeopleBase")
+);
 
 var app = builder.Build();
 
